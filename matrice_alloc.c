@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-int allocMatrix(int rows, int cols) {
+int** allocMatrix(int rows, int cols) {
   int** matrice = malloc(rows*sizeof(int*));
   for (int i = 0; i < rows; i++) {
     matrice[i] = malloc(sizeof(int)*cols);
@@ -20,12 +21,19 @@ void fillRandomMatrix(int **mat, int rows, int cols, int maxVal) {
 }
 
 void printMatrix(int **mat, int rows, int cols) { 
-  int valore;
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
-      printf("%d", mat[i][j]);
+      printf(" %d", mat[i][j]);
     }
+    putchar('\n');
   }
+}
+
+void freeMatrix(int **mat, int rows) {
+  for (int i = 0; i < rows; i++) {
+      free(mat[i]);
+  }
+  free(mat);
 }
 
 int main() {
@@ -47,7 +55,9 @@ int main() {
   
   fillRandomMatrix(matrice1, n, m, c);
   
-  int** matrice = malloc(n*m*c);
-
+  printMatrix(matrice1, n, m);
+  
+  freeMatrix(matrice1, n);
+  
   return 0;
 }
