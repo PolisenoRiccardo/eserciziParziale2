@@ -3,9 +3,9 @@
 #include <time.h>
 
 int** allocMatrix(int rows, int cols) {
-  int** matrice = malloc(rows*sizeof(int*));
+  int** matrice = malloc(rows*sizeof(int*)); // allochi le righe
   for (int i = 0; i < rows; i++) {
-    matrice[i] = malloc(sizeof(int)*cols);
+    matrice[i] = malloc(sizeof(int)*cols); // allochi le colonne (una per riga)
   }
   return matrice;
 }

@@ -76,7 +76,6 @@ int main() {
 
   moltMatrix(matriceA, matriceB, matriceC, r1, c1, c2);
 
-
   printf("Matrice A: \n");
   printMatrix(matriceA, r1, c1);
   printf("Matrice B: \n");
